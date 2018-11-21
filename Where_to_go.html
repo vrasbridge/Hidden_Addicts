@@ -13,7 +13,7 @@
 <style>
 #map {height: 500px; width: 500px}
 #map {
-  position: relative;
+  position: responsive;
   top:0;
   right:0;
   bottom:0;
@@ -103,13 +103,25 @@ var geojsonFeature = [
  {
    "type": "Feature",
    "properties": {
+     "name": "Ratio Cafe",
+     "amenity": "Coffee",
+     "popupContent": "Ratio Cafe"
+   },
+   "geometry": {
+     "type": "Point",
+     "coordinates": [-1.2592,51.7540]
+   }
+ },
+ {
+   "type": "Feature",
+   "properties": {
      "name": "Handlebar Cafe",
      "amenity": "Coffee",
      "popupContent": "Handlebar Cafe"
    },
    "geometry": {
      "type": "Point",
-     "coordinates": [1.2604,51.7533]
+     "coordinates": [-1.2604,51.7533]
    },
  }
 ];
