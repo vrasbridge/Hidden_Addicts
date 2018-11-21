@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+  <meta charset="utf-8">
   <title>Where to go - The Hidden Addicts</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -7,6 +8,20 @@
   <link href="general.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+
+<style>
+#map {height: 500px; width: 500px}
+#map {
+  position: relative;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+}
+</style>
+
+
 </head>
 <body>
 <header>
@@ -27,6 +42,126 @@
 </div>
 </div>
 </header>
+<div id='map'></div>;
+
+ <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+
+ <script>
+ // leaflet map
+
+ // these coordinates center the map on radcam (or pretty near it) geo:51.75357,-1.25455?z=17
+ var map = L.map('map').setView([51.75357, -1.25455], 16);
+ //load tilelayer
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+function onEachFeature(feature, layer) {
+   // does this feature have a property named popupContent?
+
+       layer.bindPopup(feature.properties.popupContent);
+   }
+
+//note uding square brackets makes an array]
+var geojsonFeature = [
+ {
+   "type": "Feature",
+   "properties": {
+     "name": "Missing Bean",
+     "amenity": "Coffee",
+     "popupContent": "Missing Bean!"
+   },
+   "geometry": {
+     "type": "Point",
+     "coordinates": [-1.2562, 51.7532]
+   }
+ },
+ {
+   "type": "Feature",
+   "properties": {
+     "name": "TSK",
+     "amenity": "Coffee",
+     "popupContent": "Turl Street Kitchen"
+   },
+   "geometry": {
+     "type": "Point",
+     "coordinates": [-1.2566,51.7539]
+   }
+ },
+ {
+   "type": "Feature",
+   "properties": {
+     "name": "Jericho Coffee Traders",
+     "amenity": "Coffee",
+     "popupContent": "Jericho Coffee Traders"
+   },
+   "geometry": {
+     "type": "Point",
+     "coordinates": [-1.2542,51.7523]
+   }
+ },
+ {
+   "type": "Feature",
+   "properties": {
+     "name": "Handlebar Cafe",
+     "amenity": "Coffee",
+     "popupContent": "Handlebar Cafe"
+   },
+   "geometry": {
+     "type": "Point",
+     "coordinates": [1.2604,51.7533]
+   },
+ }
+];
+
+L.geoJSON(geojsonFeature, {
+   onEachFeature: onEachFeature
+}).addTo(map);
+
+//var geojsonFeature = {
+//    "type": "Feature",
+//    "properties": {
+//        "name": "Missing Bean",
+//        "amenity": "Coffee",
+//        "popupContent": "Have some coffee!!",
+//        "show_on_map": true
+//    },
+//    "geometry": {
+//        "type": "Point",
+//        "coordinates": [-1.2562, 51.7532]
+//    }
+//  };
+
+//    L.geoJSON(geojsonFeature, {
+
+
+//    }).bindPopup(function (layer) {
+//    return layer.feature.properties;
+//    }).addTo(map);
+
+
+
+
+
+//var missing bean = L.marker([51.7532, -1.2562]).bindPopup('Missing Bean').addTo('map'),
+   //turl street kitchen = L.marker([51.7539, -1.2566]).bindPopup('Turl Street Kitchen').addTo('map'),
+   //art cafe    = L.marker([51.7517, -1.2603]).bindPopup('Art Cafe').addTo('map'),
+   //jericho coffee traders    = L.marker([51.7523, -1.2542]).bindPopup('Jericho Coffee Traders').addTo('map');
+
+
+
+//L.marker([51.75357, -1.25455]).addTo(map)
+   //.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+   //.openPopup();
+
+
+ </script>
+
+
+
+
+
+
 
 <footer>
     <div class ='footer'>
