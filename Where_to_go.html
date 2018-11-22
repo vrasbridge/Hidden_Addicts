@@ -21,7 +21,6 @@
 }
 </style>
 
-
 </head>
 <body>
 <header>
@@ -61,6 +60,10 @@ function onEachFeature(feature, layer) {
 
        layer.bindPopup(feature.properties.popupContent);
    }
+
+var gardenLayer;
+var selection;
+var selectedLayer;
 
 //note uding square brackets makes an array]
 var geojsonFeature = [
@@ -117,7 +120,7 @@ var geojsonFeature = [
    "properties": {
      "name": "Handlebar Cafe",
      "amenity": "Coffee",
-     "popupContent": "Handlebar Cafe"
+     "popupContent": "Handlebar Cafe" + "test"
    },
    "geometry": {
      "type": "Point",
