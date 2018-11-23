@@ -2,7 +2,7 @@ body{
   font-family: "Gloria Hallelujah, Cursive";
   margin: 0;
   padding: 0;
-  background-color: #696969;
+  background-color: #EAEEE8;
 }
 div {
   height: auto;
@@ -169,13 +169,15 @@ header {
 }
 
 .blurb {
+  font-family:sans-serif;
   padding-bottom: 15px;
-  font-size: 20px;
+  font-size: 18px;
+  text-align: center;
 }
 
 .footer {
   position: fixed;
-  height: 100px;
+  height: 70px;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -189,15 +191,15 @@ header {
     justify-content: center;
     padding: 20px;
     font-size: 30px;
-    width: 30px;
+    width: auto;
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
   }
 
 .icons {
-  padding-top:25px;
-  padding-bottom: 25px;
+  padding-top:5px;
+  padding-bottom: 5;
   align-items: center;
   justify-content:center;
 }
