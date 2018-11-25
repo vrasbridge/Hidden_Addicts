@@ -2,14 +2,15 @@
 
 body{
   font-family: "Gloria Hallelujah, Cursive";
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   background-color: #EAEEE8;
 }
 div {
   height: auto;
   width: auto;
   margin: 0 auto;
+  vertical-align: top;
 }
 header {
   background-color: #696969;
@@ -27,6 +28,7 @@ header {
   margin: 0 auto;
   padding-top: 3px;
   text-align: center;
+  color: #808080
 }
 
   h1 {
@@ -38,6 +40,12 @@ header {
     color: #bbbbbb;
     font-family: Gloria Hallelujah;
     font-size: 15px;
+  }
+
+  p{
+    color:black;
+    font-family: Gloria Hallelujah;
+    font-size: 20px;
   }
   .dropbtn {
       background-color: #696969;
@@ -171,10 +179,11 @@ header {
 }
 
 .blurb {
-  font-family:sans-serif;
+  font-family:Gloria Hallelujah;
   padding-bottom: 15px;
   font-size: 18px;
   text-align: center;
+  color:#808080+;
 }
 
 .footer {
@@ -224,7 +233,63 @@ header {
     margin-left:25px;
 }
 
+.PageTitle {
+  font-size: 45px;
+  color: White
+}
+
+
 
 <!--CSS for Get_your_fix-->
-.description {color: grey; text-align: center; font-size: 10px;}
-.list {color: #015B68; text-align: center; padding: 4%; max-width:100%; margin:40; list-style-type: none; font-size: 15px;}
+.description {
+  color: #0d0d0d;
+  text-align: center;
+  font-size: 10px;
+  font-family: Gloria Hallelujah;}
+
+.list {
+  color: #1a1a1a;
+  text-align: center;
+  padding: 4%;
+  max-width:100%;
+  margin:40;
+  list-style-type: none;
+  font-size: 15px;
+  font-family: Gloria Hallelujah;}
+
+.Group {
+  color:#696969;
+  max-width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-size; 30px;
+  font-family: Gloria Hallelujah;
+  }
+}
+
+
+<!--where to go CSS-->
+.frontpagebody {
+  font-family: "Gloria Hallelujah, Cursive";
+  margin: 0;
+  padding: 0;
+  background-color: #EAEEE8;
+}
+.frontpageheader {
+  background-image: url("Images/Coffee.jpg");
+  background-size: cover;
+}
+
+.wrapper1 {
+  background-image:url("Images/Coffee.jpg"); background-size: cover; linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  height: 100vh;
+}
+.Intro {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 150px;
+  text-align: center;
+}
+
+
+  }
