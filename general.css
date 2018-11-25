@@ -1,3 +1,5 @@
+<!--General CSS-->
+
 body{
   font-family: "Gloria Hallelujah, Cursive";
   margin: 0;
@@ -221,3 +223,8 @@ header {
     color: white;
     margin-left:25px;
 }
+
+
+<!--CSS for Get_your_fix-->
+.description {color: grey; text-align: center; font-size: 10px;}
+.list {color: #015B68; text-align: center; padding: 4%; max-width:100%; margin:40; list-style-type: none; font-size: 15px;}
