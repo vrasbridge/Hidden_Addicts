@@ -236,11 +236,10 @@ header {
 
 .PageTitle {
   font-size: 45px;
-  color: White
+  color: White;
+  font-family: Gloria Hallelujah;
 }
 
-h6 {font-size: 45px;
-color: White}
 
 <!--CSS for Get_your_fix-->
 .description {
