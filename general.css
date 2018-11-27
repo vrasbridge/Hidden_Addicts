@@ -409,3 +409,11 @@ div.desc {
   padding-top: 150px;
   text-align: center;
 }
+
+.form-control{
+	font-family:arial;
+}
+
+.form-group{
+	font-family:arial;
+}
