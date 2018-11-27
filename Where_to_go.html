@@ -31,7 +31,7 @@
 <div class="dropdown">
   <button class="dropbtn">Menu</button>
     <div class="dropdown-content">
-      <a href="MainPage.html"><i class="fa fa-home"></i>Home</a>
+      <a href="index.html"><i class="fa fa-home"></i>Home</a>
       <a href="About_us.html"><i class="fa fa-user-circle"></i>About Us</a>
       <a href="Where_to_go.html"><i class="fa fa-globe"></i>Where to go</a>
       <a href="Get_your_fix.html"><i class="fa fa-coffee"></i>Get your fix</a>
@@ -43,194 +43,198 @@
 </header>
 <body>
 
+    <div class="container-fluid text-center" >
+      <div class="row text-left" div class="text-center">
+          <div class="col-sm-2" style="text-justify: background-color: white; color: black; "> <h4 class= text-center>Opening hours<h4> <ul class="nav nav-pills">
+      <li class="active">
+      <li><a data-toggle="pill" href="#open1">Missing Bean</a></li>
+      <li><a data-toggle="pill" href="#open2">Turl Street Kitchen</a></li>
+      <li><a data-toggle="pill" href="#open3">Handlebar Cafe</a></li>
+      <li><a data-toggle="pill" href="#open4">Ratio Cafe</a></li>
+      <li><a data-toggle="pill" href="#open5">Art Cafe</a></li>
+    </ul>
 
-  <div class="container-fluid text-center" >
-    <div class="row" div class="side">
-        <div class="col-sm-3" style="background-color: white; color: black;"> <h4>Opening hours<h4> <ul class="nav nav-pills">
-    <li class="active">
-    <li><a data-toggle="pill" href="#open1">Missing Bean</a></li>
-    <li><a data-toggle="pill" href="#open2">Turl Street Kitchen</a></li>
-    <li><a data-toggle="pill" href="#open3">Handlebar Cafe</a></li>
-    <li><a data-toggle="pill" href="#open4">Ratio Cafe</a></li>
-  </ul>
+  <div class="tab-content">
 
-<div class="tab-content">
-
-    <div id="open1" class="tab-pane fade">
-      <h3>Missing Bean</h3>
-        <p><em>Opening hours</em><br>Mon - Fri: 8am – 6:00pm<br>
-            Sat: 9am – 6:30pm<br>
-            Sun: 10am – 5:30pm</p>
+      <div id="open1" class="tab-pane fade">
+        <h3>Missing Bean</h3>
+          <p><em>Opening hours</em><br>Mon - Fri: 8am – 6:00pm<br>
+              Sat: 9am – 6:30pm<br>
+              Sun: 10am – 5:30pm</p>
+        </div>
+        <div id="open2" class="tab-pane fade">
+          <h3>Turl Street Kitchen</h3>
+          <p><em>Opening hours</em><br>Mon - Sat: 8am – 11:00pm<br>
+          Sun: 10am – 5:30pm</p>
+              </div>
+              <div id="open3" class="tab-pane fade">
+                <h3>Handlebar Cafe</h3>
+            <p><em>Opening hours</em><br>Mon - Fri: 8am – 5:00pm<br>
+          Sat: 9am – 6:30pm<br>
+          Sun: 10am – 5:30pm</p>
+              </div>
+              <div id="open4" class="tab-pane fade">
+                <h3>Ratio Cafe</h3>
+            <p><em>Opening hours</em><br>Mon - Fri: 8am – 5:00pm<br>
+          Sat: 9am – 5:30pm<br>
+          Sun: 10am – 5:30pm</p>
+              </div>
+              <div id="open5" class="tab-pane fade">
+                <h3>Ratio Cafe</h3>
+            <p><em>Opening hours</em><br>Mon - Fri: 8am – 5:00pm<br>
+          Sat: 9am – 6:30pm<br>
+          Sun: 10am – 6:30pm</p>
+              </div>
+            </div>
+              </div>
+  <div class="row">
+    <div class="col-sm-8" id="map-holder" >
+          <div id="map">
+        </div>
       </div>
-      <div id="open2" class="tab-pane fade">
-        <h3>Turl Street Kitchen</h3>
-        <p><em>Opening hours</em><br>Mon - Sat: 8am – 11:00pm<br>
-        Sun: 10am – 5:30pm</p>
-            </div>
-            <div id="open3" class="tab-pane fade">
-              <h3>Handlebar Cafe</h3>
-          <p><em>Opening hours</em><br>Mon - Fri: 8am – 5:00pm<br>
-        Sat: 9am – 6:30pm<br>
-        Sun: 10am – 5:30pm</p>
-            </div>
-            <div id="open4" class="tab-pane fade">
-              <h3>Ratio Cafe</h3>
-          <p><em>Opening hours</em><br>Mon - Fri: 8am – 5:00pm<br>
-        Sat: 9am – 5:30pm<br>
-        Sun: 10am – 5:30pm</p>
-            </div>
-          </div>
-            </div>
-<div class="row">
-  <div class="col-sm-8" id="map-holder" >
-        <div id="map">
+    </div>
+
+
+
+   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+
+   <script>
+   // leaflet map
+
+   // these coordinates center the map on radcam (or pretty near it) geo:51.75357,-1.25455?z=17
+   var map = L.map('map').setView([51.75357, -1.25455], 16);
+   //load tilelayer
+   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  function onEachFeature(feature, layer) {
+     // does this feature have a property named popupContent?
+
+         layer.bindPopup(feature.properties.popupContent);
+     }
+
+  //note uding square brackets makes an array]
+  var geojsonFeature = [
+   {
+     "type": "Feature",
+     "properties": {
+       "name": "Missing Bean",
+       "amenity": "Coffee",
+       "popupContent": "Missing Bean!"
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [-1.2562, 51.7532]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "name": "TSK",
+       "amenity": "Coffee",
+       "popupContent": "Turl Street Kitchen"
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [-1.2566,51.7539]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "name": "Jericho Coffee Traders",
+       "amenity": "Coffee",
+       "popupContent": "Jericho Coffee Traders"
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [-1.2542,51.7523]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "name": "Ratio Cafe",
+       "amenity": "Coffee",
+       "popupContent": "Ratio Cafe"
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [-1.2592,51.7540]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "name": "Handlebar Cafe",
+       "amenity": "Coffee",
+       "popupContent": "Handlebar Cafe"
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [-1.2604,51.7533]
+     },
+   }
+  ];
+
+  L.geoJSON(geojsonFeature, {
+     onEachFeature: onEachFeature
+  }).addTo(map);
+
+
+
+  //var geojsonFeature = {
+  //    "type": "Feature",
+  //    "properties": {
+  //        "name": "Missing Bean",
+  //        "amenity": "Coffee",
+  //        "popupContent": "Have some coffee!!",
+  //        "show_on_map": true
+  //    },
+  //    "geometry": {
+  //        "type": "Point",
+  //        "coordinates": [-1.2562, 51.7532]
+  //    }
+  //  };
+
+  //    L.geoJSON(geojsonFeature, {
+
+
+  //    }).bindPopup(function (layer) {
+  //    return layer.feature.properties;
+  //    }).addTo(map);
+
+
+
+
+
+  //var missing bean = L.marker([51.7532, -1.2562]).bindPopup('Missing Bean').addTo('map'),
+     //turl street kitchen = L.marker([51.7539, -1.2566]).bindPopup('Turl Street Kitchen').addTo('map'),
+     //art cafe    = L.marker([51.7517, -1.2603]).bindPopup('Art Cafe').addTo('map'),
+     //jericho coffee traders    = L.marker([51.7523, -1.2542]).bindPopup('Jericho Coffee Traders').addTo('map');
+
+
+
+  //L.marker([51.75357, -1.25455]).addTo(map)
+     //.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+     //.openPopup();
+
+
+   </script>
+
+
+
+
+
+
+
+  <footer>
+      <div class ='footer'>
+        <div class="icons">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
       </div>
-    </div>
-  </div>
-
-
-
- <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-
- <script>
- // leaflet map
-
- // these coordinates center the map on radcam (or pretty near it) geo:51.75357,-1.25455?z=17
- var map = L.map('map').setView([51.75357, -1.25455], 16);
- //load tilelayer
- L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-function onEachFeature(feature, layer) {
-   // does this feature have a property named popupContent?
-
-       layer.bindPopup(feature.properties.popupContent);
-   }
-
-var gardenLayer;
-var selection;
-var selectedLayer;
-
-//note uding square brackets makes an array]
-var geojsonFeature = [
- {
-   "type": "Feature",
-   "properties": {
-     "name": "Missing Bean",
-     "amenity": "Coffee",
-     "popupContent": "Missing Bean!"
-   },
-   "geometry": {
-     "type": "Point",
-     "coordinates": [-1.2562, 51.7532]
-   }
- },
- {
-   "type": "Feature",
-   "properties": {
-     "name": "TSK",
-     "amenity": "Coffee",
-     "popupContent": "Turl Street Kitchen"
-   },
-   "geometry": {
-     "type": "Point",
-     "coordinates": [-1.2566,51.7539]
-   }
- },
- {
-   "type": "Feature",
-   "properties": {
-     "name": "Jericho Coffee Traders",
-     "amenity": "Coffee",
-     "popupContent": "Jericho Coffee Traders"
-   },
-   "geometry": {
-     "type": "Point",
-     "coordinates": [-1.2542,51.7523]
-   }
- },
- {
-   "type": "Feature",
-   "properties": {
-     "name": "Ratio Cafe",
-     "amenity": "Coffee",
-     "popupContent": "Ratio Cafe"
-   },
-   "geometry": {
-     "type": "Point",
-     "coordinates": [-1.2592,51.7540]
-   }
- },
- {
-   "type": "Feature",
-   "properties": {
-     "name": "Handlebar Cafe",
-     "amenity": "Coffee",
-     "popupContent": "Handlebar Cafe"
-   },
-   "geometry": {
-     "type": "Point",
-     "coordinates": [-1.2604,51.7533]
-   },
- }
-];
-
-L.geoJSON(geojsonFeature, {
-   onEachFeature: onEachFeature
-}).addTo(map);
-
-//var geojsonFeature = {
-//    "type": "Feature",
-//    "properties": {
-//        "name": "Missing Bean",
-//        "amenity": "Coffee",
-//        "popupContent": "Have some coffee!!",
-//        "show_on_map": true
-//    },
-//    "geometry": {
-//        "type": "Point",
-//        "coordinates": [-1.2562, 51.7532]
-//    }
-//  };
-
-//    L.geoJSON(geojsonFeature, {
-
-
-//    }).bindPopup(function (layer) {
-//    return layer.feature.properties;
-//    }).addTo(map);
-
-
-
-
-
-//var missing bean = L.marker([51.7532, -1.2562]).bindPopup('Missing Bean').addTo('map'),
-   //turl street kitchen = L.marker([51.7539, -1.2566]).bindPopup('Turl Street Kitchen').addTo('map'),
-   //art cafe    = L.marker([51.7517, -1.2603]).bindPopup('Art Cafe').addTo('map'),
-   //jericho coffee traders    = L.marker([51.7523, -1.2542]).bindPopup('Jericho Coffee Traders').addTo('map');
-
-
-
-//L.marker([51.75357, -1.25455]).addTo(map)
-   //.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-   //.openPopup();
-
-
- </script>
-
-
-
-
-
-
-
-<footer>
-    <div class ='footer'>
-      <div class="icons">
-      <a href="#" class="fa fa-facebook"></a>
-      <a href="#" class="fa fa-twitter"></a>
-      <a href="#" class="fa fa-instagram"></a>
-    </div>
-    </div>
-</body>
+      </div>
+  </body>
