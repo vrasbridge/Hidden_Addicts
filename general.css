@@ -284,6 +284,13 @@ header {
   font-size: 10px;
   font-family: Gloria Hallelujah;}
 
+  .blurb {
+    color: #0d0d0d;
+    text-align: center;
+    font-size: 10px;
+    font-family: Gloria Hallelujah;
+  }
+
 .list {
   color: #1a1a1a;
   text-align: center;
