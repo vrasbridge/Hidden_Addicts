@@ -92,11 +92,16 @@ header {
     color: #808080;
     font-family: Gloria Hallelujah;
     font-size: 30px;
+		margin-top: 30px;
+		border-top-width: 20px;
+		padding-top: 10px;
   }
   h2{
     color: #bbbbbb;
     font-family: Gloria Hallelujah;
     font-size: 15px;
+		padding-top: 10px;
+		padding-bottom: 10px;
   }
 
   p{
