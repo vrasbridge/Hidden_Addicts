@@ -3,7 +3,8 @@
 body{
   font-family: "Gloria Hallelujah, Cursive";
   margin: 0;
-  padding: 0px;
+  padding: 0;
+  border: 0;
   background-color: #EAEEE8;
 }
 div {
