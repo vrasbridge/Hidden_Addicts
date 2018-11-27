@@ -56,6 +56,13 @@ body{
   padding: 0px;
   background-color: #EAEEE8;
 }
+
+button{
+	font-family: "arial";
+
+}
+
+
 div {
   height: auto;
   width: auto;
@@ -112,7 +119,7 @@ header {
         top: 0;
         right: 0;
         display: inline-block;
-        z-index: 1;
+        z-index: 999;
     }
 
     .dropdown-content {
@@ -122,6 +129,7 @@ header {
         color: white;
         min-width: 200px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				font-family: arial;
 
 
     }
@@ -248,6 +256,7 @@ header {
   background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,.4));
   color: white;
   text-align: center;
+	z-index: 999;
 }
 .fa {
     display: flex;
